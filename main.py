@@ -8,12 +8,12 @@ data: dict[str, list[str]] = {}
 def home():
     return redirect(url_for("static",filename="index.html"))
 
-@app.route("/submit")
+@app.route("/submit",methods=["POST"])
 def submit():
-    print(request.args)
-    name=request.args["name"]
-    content=request.args["content"]
-    author=request.args["author"]
+    print(request.form)
+    name=request.form["name"]
+    content=request.form["content"]
+    author=request.form["author"]
     value=[content,author]
     data[name]=value
     return "Submitted"
