@@ -16,7 +16,7 @@ def submit():
     author=request.form["author"]
     value=[content,author]
     data[name]=value
-    return "Submitted"
+    return redirect(url_for("blog",name=name))
 
 @app.route("/blog")
 def blog():
